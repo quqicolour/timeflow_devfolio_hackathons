@@ -1,0 +1,740 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TimeFactory",
+  "sourceName": "contracts/TimeFactory.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "buyTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "finishAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "choosedToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "buyMessage",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "soldTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "choosedToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "solderAddress",
+          "type": "address"
+        }
+      ],
+      "name": "saleMessage",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "tradeId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "buyTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyTotalAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "finishAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyPrice",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "buyerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "solderAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct TimeFactory.tradeMes",
+          "name": "maxTradeMes",
+          "type": "tuple"
+        }
+      ],
+      "name": "SalePledge",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "allowedStableGroup",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "chooseToken",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_buyPrice",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_buyAmount",
+          "type": "uint128"
+        }
+      ],
+      "name": "buyPledge",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_thisTradeId",
+          "type": "uint64"
+        }
+      ],
+      "name": "buyerWithdrawFuture",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_thisTradeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyerWithdrawRefund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "_buyPrice",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_buyAmount",
+          "type": "uint128"
+        }
+      ],
+      "name": "getBuyerInvestAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "_thisTradeId",
+          "type": "uint64"
+        }
+      ],
+      "name": "getDepositeFutureAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEndTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "_soldPrice",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_soldAmount",
+          "type": "uint128"
+        }
+      ],
+      "name": "getPenal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getPersonalBuyRecord",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "tradeId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "buyTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyTotalAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "finishAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyPrice",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "buyerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "solderAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct TimeFactory.tradeMes[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getPersonalSaleRecord",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "tradeId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "buyTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyTotalAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "finishAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyPrice",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "buyerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "solderAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct TimeFactory.tradeMes[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_thisTradeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getThing",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "tradeId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "buyTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyTotalAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "finishAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyPrice",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "buyerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "solderAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct TimeFactory.tradeMes",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ifInject",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_thisTradeId",
+          "type": "uint64"
+        }
+      ],
+      "name": "injectFutureToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_allowStableGroup",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address",
+          "name": "_middleAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_timeVaultAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setContractAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_thisTradeId",
+          "type": "uint64"
+        }
+      ],
+      "name": "solderWithdrawStable",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "thisAddressifHadPrice",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userIfWithdraw1",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userIfWithdraw2",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userIfWithdraw3",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userIfWithdraw4",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "linkReferences": {
+    "libraries/TimeFee.sol": {
+      "TimeFee": [
+        {
+          "length": 20,
+          "start": 2081
+        },
+        {
+          "length": 20,
+          "start": 4067
+        },
+        {
+          "length": 20,
+          "start": 9977
+        }
+      ]
+    }
+  },
+  "deployedLinkReferences": {
+    "libraries/TimeFee.sol": {
+      "TimeFee": [
+        {
+          "length": 20,
+          "start": 2049
+        },
+        {
+          "length": 20,
+          "start": 4035
+        },
+        {
+          "length": 20,
+          "start": 9945
+        }
+      ]
+    }
+  }
+}
