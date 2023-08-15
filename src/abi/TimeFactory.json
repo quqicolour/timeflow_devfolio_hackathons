@@ -154,25 +154,6 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "allowedStableGroup",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
           "name": "chooseToken",
           "type": "uint256"
         },
@@ -229,27 +210,16 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint128",
-          "name": "_buyPrice",
-          "type": "uint128"
-        },
-        {
-          "internalType": "uint128",
-          "name": "_buyAmount",
-          "type": "uint128"
-        }
-      ],
-      "name": "getBuyerInvestAmount",
+      "inputs": [],
+      "name": "getAllowedToken",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address[]",
           "name": "",
-          "type": "uint256"
+          "type": "address[]"
         }
       ],
-      "stateMutability": "pure",
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -291,6 +261,19 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "getLen",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "uint128",
@@ -311,72 +294,16 @@
           "type": "uint256"
         }
       ],
-      "stateMutability": "pure",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "userAddress",
-          "type": "address"
-        }
-      ],
-      "name": "getPersonalBuyRecord",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint64",
-              "name": "tradeId",
-              "type": "uint64"
-            },
-            {
-              "internalType": "uint64",
-              "name": "buyTime",
-              "type": "uint64"
-            },
-            {
-              "internalType": "uint128",
-              "name": "buyTotalAmount",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "finishAmount",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "buyPrice",
-              "type": "uint128"
-            },
-            {
-              "internalType": "address",
-              "name": "tokenAddress",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "buyerAddress",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "solderAddress",
-              "type": "address"
-            }
-          ],
-          "internalType": "struct TimeFactory.tradeMes[]",
-          "name": "",
-          "type": "tuple[]"
-        }
-      ],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "state",
+          "type": "uint256"
+        },
         {
           "internalType": "address",
           "name": "userAddress",
@@ -439,9 +366,9 @@
     {
       "inputs": [
         {
-          "internalType": "uint256",
+          "internalType": "uint64",
           "name": "_thisTradeId",
-          "type": "uint256"
+          "type": "uint64"
         }
       ],
       "name": "getThing",
@@ -492,6 +419,35 @@
           "internalType": "struct TimeFactory.tradeMes",
           "name": "",
           "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_stableAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "ifFutureToken",
+          "type": "bool"
+        }
+      ],
+      "name": "getTradeFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -701,40 +657,6 @@
       "type": "function"
     }
   ],
-  "linkReferences": {
-    "libraries/TimeFee.sol": {
-      "TimeFee": [
-        {
-          "length": 20,
-          "start": 2081
-        },
-        {
-          "length": 20,
-          "start": 4067
-        },
-        {
-          "length": 20,
-          "start": 9977
-        }
-      ]
-    }
-  },
-  "deployedLinkReferences": {
-    "libraries/TimeFee.sol": {
-      "TimeFee": [
-        {
-          "length": 20,
-          "start": 2049
-        },
-        {
-          "length": 20,
-          "start": 4035
-        },
-        {
-          "length": 20,
-          "start": 9945
-        }
-      ]
-    }
-  }
+  "linkReferences": {},
+  "deployedLinkReferences": {}
 }
