@@ -38,21 +38,9 @@
       "name": "fetchAll",
       "outputs": [
         {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "createTime",
-              "type": "uint256"
-            },
-            {
-              "internalType": "address",
-              "name": "createAddress",
-              "type": "address"
-            }
-          ],
-          "internalType": "struct TimeInvest.futureTokenGroup[]",
+          "internalType": "uint256",
           "name": "",
-          "type": "tuple[]"
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -152,40 +140,6 @@
       "type": "function"
     }
   ],
-  "linkReferences": {
-    "libraries/TimeFee.sol": {
-      "TimeFee": [
-        {
-          "length": 20,
-          "start": 6812
-        },
-        {
-          "length": 20,
-          "start": 8798
-        },
-        {
-          "length": 20,
-          "start": 14708
-        }
-      ]
-    }
-  },
-  "deployedLinkReferences": {
-    "libraries/TimeFee.sol": {
-      "TimeFee": [
-        {
-          "length": 20,
-          "start": 6277
-        },
-        {
-          "length": 20,
-          "start": 8263
-        },
-        {
-          "length": 20,
-          "start": 14173
-        }
-      ]
-    }
-  }
+  "linkReferences": {},
+  "deployedLinkReferences": {}
 }
