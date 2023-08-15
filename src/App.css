@@ -2,3 +2,22 @@
   text-align: center;
 }
 
+
+
+
+
+//购买价格输入框
+.buyPrice{
+  width: 100%;
+  outline-style: none ;
+  border: 1px solid #f589d2; 
+  border-radius: 3px;
+  padding: 14px 14px;
+  font-size: 24px;
+}
+
+//购买数量输入框
+.buyAmount{
+  width: 100%;
+}
+
