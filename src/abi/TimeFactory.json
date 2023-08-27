@@ -27,12 +27,6 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "finishAmount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
           "name": "price",
           "type": "uint256"
         },
@@ -82,12 +76,6 @@
         {
           "indexed": false,
           "internalType": "address",
-          "name": "choosedToken",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "address",
           "name": "solderAddress",
           "type": "address"
         }
@@ -98,51 +86,14 @@
     {
       "inputs": [
         {
-          "components": [
-            {
-              "internalType": "uint64",
-              "name": "tradeId",
-              "type": "uint64"
-            },
-            {
-              "internalType": "uint64",
-              "name": "buyTime",
-              "type": "uint64"
-            },
-            {
-              "internalType": "uint128",
-              "name": "buyTotalAmount",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "finishAmount",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "buyPrice",
-              "type": "uint128"
-            },
-            {
-              "internalType": "address",
-              "name": "tokenAddress",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "buyerAddress",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "solderAddress",
-              "type": "address"
-            }
-          ],
-          "internalType": "struct TimeFactory.tradeMes",
-          "name": "maxTradeMes",
-          "type": "tuple"
+          "internalType": "uint64",
+          "name": "_thisTradeId",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
         }
       ],
       "name": "SalePledge",
@@ -166,6 +117,11 @@
           "internalType": "uint128",
           "name": "_buyAmount",
           "type": "uint128"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_clearNumber",
+          "type": "uint256"
         }
       ],
       "name": "buyPledge",
@@ -225,57 +181,6 @@
     {
       "inputs": [
         {
-          "internalType": "uint64",
-          "name": "_thisTradeId",
-          "type": "uint64"
-        }
-      ],
-      "name": "getDepositeFutureAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_clearNumber",
-          "type": "uint256"
-        }
-      ],
-      "name": "getEndTime",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getLen",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "uint128",
           "name": "_soldPrice",
           "type": "uint128"
@@ -303,11 +208,6 @@
           "internalType": "uint256",
           "name": "state",
           "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "userAddress",
-          "type": "address"
         }
       ],
       "name": "getPersonalSaleRecord",
@@ -340,6 +240,11 @@
               "type": "uint128"
             },
             {
+              "internalType": "uint256",
+              "name": "tradeState",
+              "type": "uint256"
+            },
+            {
               "internalType": "address",
               "name": "tokenAddress",
               "type": "address"
@@ -367,10 +272,70 @@
       "inputs": [
         {
           "internalType": "uint64",
-          "name": "_thisTradeId",
+          "name": "_thisId",
           "type": "uint64"
         }
       ],
+      "name": "getPointThing",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "tradeId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "buyTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyTotalAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "finishAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "buyPrice",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tradeState",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "buyerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "solderAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct TimeFactory.tradeMes",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "getThing",
       "outputs": [
         {
@@ -401,6 +366,11 @@
               "type": "uint128"
             },
             {
+              "internalType": "uint256",
+              "name": "tradeState",
+              "type": "uint256"
+            },
+            {
               "internalType": "address",
               "name": "tokenAddress",
               "type": "address"
@@ -416,9 +386,9 @@
               "type": "address"
             }
           ],
-          "internalType": "struct TimeFactory.tradeMes",
+          "internalType": "struct TimeFactory.tradeMes[]",
           "name": "",
-          "type": "tuple"
+          "type": "tuple[]"
         }
       ],
       "stateMutability": "view",
@@ -450,7 +420,7 @@
           "type": "uint256"
         }
       ],
-      "stateMutability": "view",
+      "stateMutability": "pure",
       "type": "function"
     },
     {
@@ -534,30 +504,6 @@
       "name": "solderWithdrawStable",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "thisAddressifHadPrice",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {
