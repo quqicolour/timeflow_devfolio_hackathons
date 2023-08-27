@@ -70,6 +70,11 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "_airdropContract",
+          "type": "address"
+        },
+        {
           "internalType": "string",
           "name": "_disputeName",
           "type": "string"
@@ -106,12 +111,36 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "_airdropContract",
+          "type": "address"
+        }
+      ],
+      "name": "getClearId",
+      "outputs": [
+        {
           "internalType": "uint256",
-          "name": "_number",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "getCleanTime",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_number",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_airdropContract",
+          "type": "address"
+        }
+      ],
+      "name": "getClearTime",
       "outputs": [
         {
           "internalType": "uint256",
@@ -137,7 +166,7 @@
     },
     {
       "inputs": [],
-      "name": "getclearNumber",
+      "name": "getLastNumber",
       "outputs": [
         {
           "internalType": "uint256",
@@ -204,8 +233,13 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_cleanTime",
+          "name": "_clearTime",
           "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "airdropContract",
+          "type": "address"
         },
         {
           "internalType": "address",
